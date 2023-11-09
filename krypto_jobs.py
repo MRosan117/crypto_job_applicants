@@ -187,8 +187,8 @@ st.sidebar.write(account.address)
 # YOUR CODE HERE
 
 
-st.sidebar.write("This is the value of the customer account", get_balance(w3, account.address))
-
+# st.sidebar.write("This is the value of the customer account", get_balance(w3, account.address))
+st.sidebar.write( get_balance(w3, account.address)) 
 ##########################################
 
 # Create a select box to chose a FinTech Hire candidate
@@ -311,9 +311,12 @@ if st.sidebar.button("Send Transaction"):
     # Your `account`, the `candidate_address`, and the `wage` as parameters
     # Save the returned transaction hash as a variable named `transaction_hash`
     # YOUR CODE HERE
-    transaction_hash = (account, candidate_address, wage)
 
-    account.send_transaction(account, to, wage)
+    # account.send_transaction(account, to, wage)
+    
+    transaction_hash = send_transaction(w3, account, candidate_address, wage)
+
+    # transaction_hash = send_transaction(w3, account, candidate_address, wage)
 
     # Markdown for the transaction hash
     st.sidebar.markdown("#### Validated Transaction Hash")
